@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Layout, Button, message } from 'antd';
 import TaskForm from '../../components/Form';
 import TaskTable from '../../components/Table';
@@ -19,6 +20,8 @@ const { Header, Content } = Layout;
 const Dashboard: React.FC = () => {
   const [tasks, setTasks] = useState<ITask[]>([]);
   const [loading, setLoading] = useState(true);
+
+  const navigation = useNavigate();
 
   const fetchTasks = async () => {
     try {
@@ -69,7 +72,10 @@ const Dashboard: React.FC = () => {
   return (
     <Layout style={{ height: '100vh' }}>
       <Header>
-        <Button type="primary" onClick={() => localStorage.removeItem('token')}>
+        <Button type="primary" onClick={() => {
+          localStorage.removeItem('token')
+          navigation('/login');
+        }}>
           Sair
         </Button>
       </Header>
