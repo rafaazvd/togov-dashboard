@@ -19,3 +19,5 @@ Credenciais para Login:
 
 user: admin@togov.com
 password: 12345678
+
+Tempo Necessário pra desenvolver o projeto completo foi 10 horas
